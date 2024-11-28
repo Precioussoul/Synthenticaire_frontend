@@ -2,9 +2,23 @@ import {ConversationProps} from "@/app/data"
 import Image from "next/image"
 import React from "react"
 
-const ConversationItem = ({recipientImage, recipientName, latestMessage, time, unread}: ConversationProps) => {
+interface ConversationItemProp {
+  id?: number
+  recipientImage: string
+  recipientName: string
+  latestMessage: string
+  time: string
+  unread: boolean
+  isSelected?: boolean
+  onClick: () => void
+}
+
+const ConversationItem = ({recipientImage, recipientName, latestMessage, time, unread, onClick, isSelected}: ConversationItemProp) => {
   return (
-    <div className='p-4 flex items-start justify-between border-b border-gray-100'>
+    <div
+      onClick={onClick}
+      className={`p-4 flex items-start cursor-pointer hover:bg-orange-50 justify-between border-b border-gray-100 ${isSelected ? "bg-orange-50" : ""}`}
+    >
       <div className='flex items-start gap-4'>
         <div className='w-[50px] h-[50px] bg-red-200 rounded-full relative'>
           <Image src={recipientImage} alt='recipient image' className='w-full h-full object-cover rounded-full' width={100} height={100} />

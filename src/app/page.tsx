@@ -1,9 +1,14 @@
+"use client"
+
 import ConversationItem from "@/components/ConversationItem"
 import SearchChatBar from "@/components/SearchChatBar"
-import React from "react"
-import {conversations} from "./data"
+import React, {useState} from "react"
+import {ConversationProps, conversations} from "./data"
+import MessagesBox from "@/components/MessagesBox"
 
 const ChatPage = () => {
+  const [conversation, setConversation] = useState<ConversationProps | null>(null)
+
   return (
     <div className='w-full h-full'>
       <div className='container mx-auto w-full p-4 h-full'>
@@ -20,11 +25,17 @@ const ChatPage = () => {
                   latestMessage={item.latestMessage}
                   unread={item.unread}
                   time={item.time}
+                  isSelected={item.id === conversation?.id}
+                  onClick={() => {
+                    setConversation(item)
+                  }}
                 />
               ))}
             </div>
           </div>
-          <div className='hidden lg:flex lg:flex-[69%]  bg-white rounded-3xl shadow-sm h-full'></div>
+          <div className='hidden lg:flex lg:flex-[69%]  bg-white rounded-3xl shadow-sm h-full'>
+            <MessagesBox conversation={conversation as ConversationProps} />
+          </div>
         </div>
       </div>
     </div>
