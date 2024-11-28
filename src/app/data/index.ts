@@ -1,5 +1,5 @@
 export interface ConversationProps {
-  id: number
+  id?: number
   recipientImage: string
   recipientName: string
   latestMessage: string
