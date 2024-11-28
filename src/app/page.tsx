@@ -33,8 +33,14 @@ const ChatPage = () => {
               ))}
             </div>
           </div>
-          <div className='hidden lg:flex lg:flex-[69%]  bg-white rounded-3xl shadow-sm h-full'>
-            <MessagesBox conversation={conversation as ConversationProps} />
+          <div className='hidden lg:flex lg:flex-[69%]  bg-white rounded-3xl shadow-sm h-full overflow-hidden'>
+            {conversation ? (
+              <MessagesBox conversation={conversation as ConversationProps} />
+            ) : (
+              <div className='h-full w-full flex items-center justify-center'>
+                <h3 className='text-2xl text-black'>Welcome to the chat </h3>
+              </div>
+            )}
           </div>
         </div>
       </div>
