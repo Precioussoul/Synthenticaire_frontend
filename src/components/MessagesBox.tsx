@@ -18,13 +18,13 @@ const MessagesBox = ({conversation}: MessageBoxProps) => {
     setMessages(results)
   }, [conversation?.id])
   return (
-    <div className='w-full h-full overflow-hidden'>
+    <div className='w-full h-full relative'>
       <RecipientHeader
         recipientName={conversation?.recipientName as string}
         recipientImage={conversation?.recipientImage as string}
         recipientDescription='Available until evening'
       />
-      <div className='flex-1 bg-white h-[75vh] overflow-y-scroll flex flex-col gap-4 overflow-x-hidden p-4 w-full'>
+      <div className='flex-1 bg-white h-[72vh] overflow-y-scroll flex flex-col gap-4 overflow-x-hidden p-4 w-full hide-scroll '>
         {messages && messages.map((message, idx) => <MessageItem key={idx} conversation={conversation as ConversationProps} message={message} />)}
       </div>
       <SendMessageFooter />
