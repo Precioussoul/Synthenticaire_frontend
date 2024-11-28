@@ -1,3 +1,4 @@
+"use client"
 import {ConversationProps} from "@/app/data"
 import {MessageProps} from "@/app/data/messages"
 import Image from "next/image"
