@@ -18,15 +18,15 @@ const MessageItem = ({message, conversation}: MessageItemProps) => {
             <Image src={conversation.recipientImage} alt='recipient image' className='w-full h-full object-cover rounded-full' width={100} height={100} />
             <div className='w-3 h-3 bg-green-600 rounded-full absolute bottom-0 right-0'></div>
           </div>
-          <span className='font-semibold text-gray-800 text-sm'>{message.timestamp}</span>
+          <span className='font-semibold text-gray-800 text-xs md:text-sm'>{message.timestamp}</span>
         </div>
       )}
       <div
-        className={`min-h-[70px] w-1/2 max-w-2/3 p-4  ${
+        className={`min-h-[40px] w-1/2 max-w-2/3 p-4  ${
           message.receiver === "You" ? "bg-primary rounded-r-3xl rounded-bl-3xl" : "bg-secondary rounded-l-3xl rounded-br-3xl"
         } `}
       >
-        <p className={`${message.receiver === "You" ? "text-gray-600" : "text-gray-100"}  font-medium`}>{message.message}</p>
+        <p className={`${message.receiver === "You" ? "text-gray-600" : "text-gray-100"} text-xs md:text-sm  font-medium`}>{message.message}</p>
       </div>
     </div>
   )

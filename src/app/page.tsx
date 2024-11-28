@@ -5,15 +5,20 @@ import SearchChatBar from "@/components/SearchChatBar"
 import React, {useState} from "react"
 import {ConversationProps, conversations} from "./data"
 import MessagesBox from "@/components/MessagesBox"
+import {useAppContext} from "@/contexts/AppContext"
 
 const ChatPage = () => {
-  const [conversation, setConversation] = useState<ConversationProps | null>(null)
+  const {conversation, setConversation} = useAppContext()
 
   return (
-    <div className='w-full h-full'>
-      <div className='container mx-auto w-full p-4 h-full'>
-        <div className='w-full flex items-start gap-5 h-[90vh] my-4'>
-          <div className='flex-[100%] w-full lg:flex-[30%]  flex flex-col gap-5 rounded-2xl shadow-sm h-full'>
+    <div className={`w-full h-full  `}>
+      <div className='container mx-auto w-full lg:p-4 h-full'>
+        <div className='w-full flex items-start gap-5 h-full lg:h-[90vh] lg:my-4'>
+          <div
+            className={`${
+              conversation ? "hidden lg:flex" : ""
+            } flex-[100%] w-full lg:flex-[35%] xl:flex-[30%] px-2  flex flex-col gap-5 rounded-2xl shadow-sm h-full`}
+          >
             <SearchChatBar />
             <div className='bg-white w-full h-full flex flex-col gap-4 rounded-3xl shadow-sm p-4 overflow-y-scroll hide-scroll'>
               {conversations.map((item, idx) => (
@@ -33,7 +38,11 @@ const ChatPage = () => {
               ))}
             </div>
           </div>
-          <div className='hidden lg:flex lg:flex-[69%]  bg-white rounded-3xl shadow-sm h-full overflow-hidden'>
+          <div
+            className={`${
+              conversation ? "flex flex-[100%]" : "hidden"
+            } lg:flex lg:flex-[64%] xl:flex-[69%]   bg-white rounded-3xl shadow-sm h-full overflow-hidden`}
+          >
             {conversation ? (
               <MessagesBox conversation={conversation as ConversationProps} />
             ) : (

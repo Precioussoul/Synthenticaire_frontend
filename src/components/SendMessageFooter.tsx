@@ -8,8 +8,8 @@ import Image from "next/image"
 import {formatFileSize} from "@/utils"
 import PDFImage from "@/assets/svgs/pdf.svg"
 import DocxImage from "@/assets/svgs/doc-file.svg"
-import OtherFilemage from "@/assets/svgs/all-docx.svg"
-import {IoClose, IoCloseCircleOutline} from "react-icons/io5"
+import OtherFilemage from "@/assets/svgs/document.png"
+import {IoCloseCircleOutline} from "react-icons/io5"
 
 const SendMessageFooter = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[] | null>(null)
@@ -46,19 +46,19 @@ const SendMessageFooter = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center h-[14vh] xl:h-[12vh] 2xl:h-[10vh] z-20 items-center'>
+      <div className='flex flex-col justify-center h-auto my-3 lg:my-0   z-20 items-center'>
         <div className='flex items-center gap-2 w-11/12 mx-auto'>
-          <div className='bg-primary rounded-3xl p-4 w-11/12 mx-auto flex items-center gap-3'>
-            <HiOutlineFaceSmile size={35} color='#000' className='cursor-pointer' />
+          <div className='bg-primary rounded-3xl p-2 lg:p-4 w-11/12 mx-auto flex items-center gap-3'>
+            <HiOutlineFaceSmile size={25} color='#000' className='cursor-pointer ' />
             <input type='text' className='p-2 px-4 border-none bg-transparent outline-none flex-grow text-black' placeholder='Enter your message' />
             <input type='file' multiple className='hidden' id='file-upload' onChange={handleFileChange} />
             <label htmlFor='file-upload'>
-              <GrAttachment size={28} color='#000' className='cursor-pointer' />
+              <GrAttachment size={20} color='#000' className='cursor-pointer' />
             </label>{" "}
           </div>
 
           <div className='w-auto h-auto bg-green-500 rounded-full p-2 '>
-            <IoIosSend size={28} color='#fff' className='cursor-pointer' />
+            <IoIosSend size={20} color='#fff' className='cursor-pointer' />
           </div>
         </div>
       </div>
