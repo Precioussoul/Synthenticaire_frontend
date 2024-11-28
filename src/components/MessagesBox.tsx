@@ -26,7 +26,7 @@ const MessagesBox = ({conversation}: MessageBoxProps) => {
         recipientImage={conversation?.recipientImage as string}
         recipientDescription='Available until evening'
       />
-      <div className='flex-1 bg-white h-[70vh] 2xl:h-[72vh] overflow-y-scroll flex flex-col gap-4 overflow-x-hidden p-4 w-full hide-scroll '>
+      <div className='flex-1 bg-white h-[68vh] xl:h-[70vh] 2xl:h-[72vh] overflow-y-scroll flex flex-col gap-4 overflow-x-hidden p-4 w-full hide-scroll '>
         {messages && messages.map((message, idx) => <MessageItem key={idx} conversation={conversation as ConversationProps} message={message} />)}
       </div>
       <SendMessageFooter />

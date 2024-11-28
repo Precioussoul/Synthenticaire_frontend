@@ -46,7 +46,7 @@ const SendMessageFooter = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center xl:h-[12vh] 2xl:h-[10vh] z-20 items-center'>
+      <div className='flex flex-col justify-center h-[14vh] xl:h-[12vh] 2xl:h-[10vh] z-20 items-center'>
         <div className='flex items-center gap-2 w-11/12 mx-auto'>
           <div className='bg-primary rounded-3xl p-4 w-11/12 mx-auto flex items-center gap-3'>
             <HiOutlineFaceSmile size={35} color='#000' className='cursor-pointer' />
@@ -63,10 +63,10 @@ const SendMessageFooter = () => {
         </div>
       </div>
       {selectedFiles && (
-        <div className='absolute bottom-[10%] left-0 right-0 bg-gray-50 h-1/4 w-full mx-auto shadow-md rounded-t-3xl'>
-          <div className='flex items-center gap-3'>
+        <div className='absolute bottom-[14%] xl:bottom-[10%] left-0 right-0 bg-blue-50 h-1/4 w-full mx-auto rounded-t-3xl'>
+          <div className='flex items-center gap-4 w-full overflow-x-scroll '>
             {selectedFiles.map((file, idx) => (
-              <div key={idx} className='w-full p-3 border border-gray-100 rounded-md flex items-center justify-between gap-2'>
+              <div key={idx} className='w-fit p-3 border border-gray-100 rounded-md flex items-center justify-between gap-2'>
                 <div className='w-fit flex flex-col border border-gray-100 gap-2 rounded-3xl p-4 shadow-sm bg-white relative'>
                   <Image
                     src={
@@ -84,7 +84,7 @@ const SendMessageFooter = () => {
                     height={100}
                   />
                   <div className='flex flex-col gap-1 text-sm'>
-                    <h3 className='text-gray-700 font-medium line-clamp-1'>{file.name}</h3>
+                    <h3 className='text-gray-700 font-medium line-clamp-1 w-[100px]'>{file.name}</h3>
                     <span className='text-gray-600'>{formatFileSize(file.size)}</span>
                   </div>
                   <div className='absolute top-0 right-0'>
