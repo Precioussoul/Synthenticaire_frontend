@@ -6,6 +6,8 @@ import React, {useState} from "react"
 import {ConversationProps, conversations} from "./data"
 import MessagesBox from "@/components/MessagesBox"
 import {useAppContext} from "@/contexts/AppContext"
+import Image from "next/image"
+import ChatBgImg from "@/assets/image/chat.png"
 
 const ChatPage = () => {
   const {conversation, setConversation} = useAppContext()
@@ -46,8 +48,10 @@ const ChatPage = () => {
             {conversation ? (
               <MessagesBox conversation={conversation as ConversationProps} />
             ) : (
-              <div className='h-full w-full flex items-center justify-center'>
-                <h3 className='text-2xl text-black'>Welcome to the chat </h3>
+              <div className='h-full w-full flex flex-col gap-3 bg-white items-center justify-center'>
+                <Image src={ChatBgImg} alt='Chat Welcome' width={100} height={100} />
+                <h3 className='text-2xl text-gray-800'>Welcome to the chat </h3>
+                <span className='text-sm text-gray-400'>Chat with your peers and get alone with everyone</span>
               </div>
             )}
           </div>

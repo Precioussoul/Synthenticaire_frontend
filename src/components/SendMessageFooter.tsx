@@ -8,7 +8,7 @@ import Image from "next/image"
 import {formatFileSize} from "@/utils"
 import PDFImage from "@/assets/svgs/pdf.svg"
 import DocxImage from "@/assets/svgs/doc-file.svg"
-import OtherFilemage from "@/assets/svgs/document.png"
+import OtherFilemage from "@/assets/image/document.png"
 import {IoCloseCircleOutline} from "react-icons/io5"
 
 const SendMessageFooter = () => {
@@ -50,7 +50,11 @@ const SendMessageFooter = () => {
         <div className='flex items-center gap-2 w-11/12 mx-auto'>
           <div className='bg-primary rounded-3xl p-2 lg:p-4 w-11/12 mx-auto flex items-center gap-3'>
             <HiOutlineFaceSmile size={25} color='#000' className='cursor-pointer ' />
-            <input type='text' className='p-2 px-4 border-none bg-transparent outline-none flex-grow text-black' placeholder='Enter your message' />
+            <input
+              type='text'
+              className='p-2 px-4 border-none bg-transparent outline-none flex-grow text-black w-10/12 lg:w-full'
+              placeholder='Enter your message'
+            />
             <input type='file' multiple className='hidden' id='file-upload' onChange={handleFileChange} />
             <label htmlFor='file-upload'>
               <GrAttachment size={20} color='#000' className='cursor-pointer' />
